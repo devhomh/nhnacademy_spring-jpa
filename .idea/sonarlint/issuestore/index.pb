@@ -33,3 +33,6 @@ j
 :src/main/java/com/nhnacademy/springjpa/entity/Reviews.java,0/f/0f3f6120862ad3ad11481548bf31312b1a57e512
 o
 ?src/main/java/com/nhnacademy/springjpa/entity/ShoppingCart.java,0/7/073938b899b56de1a6af7e32cd094cff1dadc1aa
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
