@@ -16,18 +16,18 @@ import lombok.Setter;
 @Table(name = "ShoppingCart")
 public class ShoppingCart {
     @Id
-    @Column(name = "RecordID")
+    @Column(name = "record_id")
     private Integer recordId;
 
-    @Column(name = "CartID")
+    @Column(name = "cart_id")
     private String cartId;
 
-    @Column(name = "Quantity")
+    @Column(name = "quantity")
     private Integer quantity;
 
-    @Column(name = "ProductID")
+    @Column(name = "product_id")
     private Integer productId;
 
-    @Column(name = "DateCreated")
+    @Column(name = "created_at")
     private LocalDateTime dateCreated;
 }

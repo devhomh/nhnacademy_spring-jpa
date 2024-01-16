@@ -11,79 +11,78 @@
  */
 
 CREATE TABLE IF NOT EXISTS `Categories` (
-                            CategoryID		INT	auto_increment,
-                            CategoryName	varchar(50),
+                            `category_id`		INT	auto_increment NOT NULL,
+                            `category_name`	varchar(50) NOT NULL,
 
-                            CONSTRAINT pk_Categories PRIMARY KEY(CategoryID)
+                            PRIMARY KEY(`category_id`)
 );
 
 CREATE TABLE IF NOT EXISTS `Products` (
-                          ProductID	INT	auto_increment,
-                          CategoryID	INT,
-                          ModelNumber	nvarchar(10),
-                          ModelName	nvarchar(120),
-                          Quantity INT,
-                          ProductImage	nvarchar(30),
-                          UnitCost	decimal(15),
-                          Description	text,
+                          `product_id`	INT	auto_increment NOT NULL,
+                          `category_id`	INT NOT NULL,
+                          `model_number`	nvarchar(10) NOT NULL,
+                          `model_name`	nvarchar(120) NOT NULL,
+                          `quantity` INT DEFAULT 0,
+                          `prouduct_image`	nvarchar(30) NOT NULL,
+                          `unitcost`	decimal(15) NOT NULL,
+                          `description`	text,
 
-                          CONSTRAINT pk_Products PRIMARY KEY(ProductID),
-                          CONSTRAINT fk_Products_Categories FOREIGN KEY(CategoryID) REFERENCES Categories(CategoryID)
+                          PRIMARY KEY(`product_id`),
+                          FOREIGN KEY(`category_id`) REFERENCES Categories(`category_id`)
 );
 
 CREATE TABLE IF NOT EXISTS `Users` (
-                       UserID varchar(50) NOT NULL COMMENT '아이디',
-                       UserName varchar(50) NOT NULL COMMENT '이름',
-                       UserPassword varchar(200) NOT NULL COMMENT 'mysql password 사용',
-                       UserBirth varchar(8) NOT NULL COMMENT '생년월일 : 19840503',
-                       UserAuth varchar(10) NOT NULL COMMENT '권한: ROLE_ADMIN,ROLE_USER',
-                       UserPoint int NOT NULL COMMENT 'default : 1000000',
-                       CreatedAt datetime NOT NULL COMMENT '가입일자',
-                       LatestLoginAt datetime DEFAULT NULL COMMENT '마지막 로그인 일자',
-                       PRIMARY KEY (UserID)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='회원'
-;
+                       `user_id` varchar(50) NOT NULL,
+                       `user_name` varchar(50) NOT NULL,
+                       `user_password` varchar(200) NOT NULL,
+                       `user_birth` varchar(8) NOT NULL,
+                       `user_auth` varchar(10) NOT NULL,
+                       `user_point` int DEFAULT 0,
+                       `created_at` datetime,
+                       `latest_at` datetime,
+                       PRIMARY KEY (`user_id`)
+);
 
 CREATE TABLE IF NOT EXISTS `Reviews` (
-                         ReviewID	int auto_increment,
-                         ProductID	int,
-                         UserID	    varchar(50),
-                         Rating		int,
-                         Comments	text,
+                         `review_id`	int auto_increment NOT NULL,
+                         `product_id`	int NOT NULL,
+                         `user_id`	    varchar(50) NOT NULL,
+                         `rating`		int NOT NULL,
+                         `comments`	text,
 
-                         CONSTRAINT pk_ReviewID PRIMARY KEY(ReviewID),
-                         CONSTRAINT fk_Review_Products FOREIGN KEY(ProductID) REFERENCES Products(ProductID),
-                         CONSTRAINT fk_Review_Users FOREIGN KEY(UserID) REFERENCES Users(UserID)
+                         PRIMARY KEY(`review_id`),
+                         FOREIGN KEY(`product_id`) REFERENCES Products(`product_id`),
+                         FOREIGN KEY(`user_id`) REFERENCES Users(`user_id`)
 );
 
 CREATE TABLE IF NOT EXISTS `Orders` (
-                        OrderID		int auto_increment,
-                        UserID	    varchar(50),
-                        OrderDate	Datetime,
-                        ShipDate	Datetime,
+                        `order_id`		int auto_increment NOT NULL,
+                        `user_id`	    varchar(50) NOT NULL,
+                        `order_date`	Datetime,
+                        `ship_date`	Datetime,
 
                         CONSTRAINT pk_Orders PRIMARY KEY(OrderID),
                         CONSTRAINT fk_Orders_Users FOREIGN KEY(UserID) REFERENCES Users(UserID)
 );
 
 CREATE TABLE IF NOT EXISTS `OrderDetails` (
-                              OrderID		int,
-                              ProductID	int,
-                              Quantity	int,
-                              UnitCost	decimal(15),
+                              `order_id`    int NOT NULL,
+                              `product_id`	int NOT NULL,
+                              `quantity`	int DEFAULT 0,
+                              `unitcost`	decimal(15),
 
-                              CONSTRAINT pk_OrderDetails PRIMARY KEY(OrderID, ProductID),
-                              CONSTRAINT fk_OrderDetails_Orders FOREIGN KEY(OrderID) REFERENCES Orders(OrderID),
-                              CONSTRAINT fk_OrderDetails_Products FOREIGN KEY(ProductID) REFERENCES Products(ProductID)
+                              PRIMARY KEY(`order_id`, `product_id`),
+                              FOREIGN KEY(`order_id`) REFERENCES Orders(`order_id`),
+                              FOREIGN KEY(ProductID) REFERENCES Products(`product_id`)
 );
 
 CREATE TABLE IF NOT EXISTS `ShoppingCart` (
-                              RecordID	int	auto_increment,
-                              CartID		nvarchar(150),
-                              Quantity	int,
-                              ProductID	int,
-                              DateCreated	Datetime DEFAULT NOW(),
+                              `record_id`	int	auto_increment NOT NULL,
+                              `cart_id`		nvarchar(150) NOT NULL,
+                              `quantity`	int,
+                              `product_id`	int,
+                              `created_at`	Datetime DEFAULT NOW(),
 
-                              CONSTRAINT pk_RecordID PRIMARY KEY(RecordID),
-                              CONSTRAINT fk_cart_ProductID FOREIGN KEY(ProductID) REFERENCES Products(ProductID)
+                              PRIMARY KEY(record_id),
+                              FOREIGN KEY(`product_id`) REFERENCES Products(`product_id`)
 );

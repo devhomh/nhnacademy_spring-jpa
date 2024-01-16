@@ -1,9 +1,13 @@
 package com.nhnacademy.springjpa.entity;
 
+import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,16 +18,26 @@ import lombok.Setter;
 @Entity
 @Table(name = "OrderDetails")
 public class OrderDetail {
-    @Id
-    @Column(name = "OrderID")
-    private Integer orderId;
+    @EmbeddedId
+    private Pk pk;
 
-    @Column(name = "ProductID")
-    private Integer productId;
-
-    @Column(name = "Quantity")
+    @Column(name = "quantity")
     private Integer quantity;
 
-    @Column(name = "UnitCost")
+    @Column(name = "unitcost")
     private Integer unitCost;
+
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @EqualsAndHashCode
+    @Getter
+    @Setter
+    @Embeddable
+    public static class Pk implements Serializable {
+        @Column(name = "order_id")
+        private Integer orderId;
+
+        @Column(name = "product_id")
+        private Integer productId;
+    }
 }

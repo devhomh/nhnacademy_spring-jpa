@@ -17,15 +17,15 @@ import lombok.Setter;
 @Table(name = "Orders")
 public class Order {
     @Id
-    @Column(name = "OrderID")
+    @Column(name = "order_id")
     private Integer orderId;
 
-    @Column(name = "UserID")
+    @Column(name = "user_id")
     private String userId;
 
-    @Column(name = "OrderDate")
+    @Column(name = "order_date")
     private LocalDateTime orderDate;
 
-    @Column(name = "ShipDate")
+    @Column(name = "ship_date")
     private LocalDateTime shipDate;
 }

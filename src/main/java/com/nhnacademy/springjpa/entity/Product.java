@@ -15,27 +15,27 @@ import lombok.Setter;
 @Table(name = "Products")
 public class Product {
     @Id
-    @Column(name = "ProductID")
+    @Column(name = "product_id")
     private Integer productId;
 
-    @Column(name = "CategoryID")
+    @Column(name = "category_id")
     private Integer categoryId;
 
-    @Column(name = "ModelNumber")
+    @Column(name = "model_number")
     private String modelNumber;
 
-    @Column(name = "ModelName")
+    @Column(name = "model_name")
     private String modelName;
 
-    @Column(name = "Quantity")
+    @Column(name = "quantity")
     private Integer quantity;
 
-    @Column(name = "ProductImage")
+    @Column(name = "prouduct_image")
     private String productImage;
 
-    @Column(name = "UnitCost")
+    @Column(name = "unitcost")
     private Integer unitCost;
 
-    @Column(name = "Description")
+    @Column(name = "description")
     private String description;
 }

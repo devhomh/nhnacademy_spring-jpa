@@ -16,28 +16,28 @@ import lombok.Setter;
 @Table(name = "Users")
 public class User {
     @Id
-    @Column(name = "UserID")
+    @Column(name = "user_id")
     private String userId;
 
-    @Column(name = "UserName")
+    @Column(name = "user_name")
     private String userName;
 
-    @Column(name = "UserPassword")
+    @Column(name = "user_password")
     private String userPassword;
 
-    @Column(name = "UserBirth")
+    @Column(name = "user_birth")
     private String userBirth;
 
-    @Column(name = "UserAuth")
+    @Column(name = "user_auth")
     private String userAuth;
 
-    @Column(name = "UserPoint")
+    @Column(name = "user_point")
     private Integer userPoint;
 
-    @Column(name = "CreatedAt")
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @Column(name = "LatestLoginAt")
+    @Column(name = "latest_at")
     private LocalDateTime latestLoginAt;
 
 }

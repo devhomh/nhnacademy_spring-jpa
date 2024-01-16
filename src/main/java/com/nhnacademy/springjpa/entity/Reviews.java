@@ -15,18 +15,18 @@ import lombok.Setter;
 @Table(name = "Reviews")
 public class Reviews {
     @Id
-    @Column(name = "ReviewID")
+    @Column(name = "review_id")
     private Integer reviewId;
 
-    @Column(name = "ProductID")
+    @Column(name = "product_id")
     private Integer productId;
 
-    @Column(name = "UserID")
+    @Column(name = "user_id")
     private String userId;
 
-    @Column(name = "Rating")
+    @Column(name = "rating")
     private Integer rating;
 
-    @Column(name = "Comments")
+    @Column(name = "comments")
     private String comments;
 }
