@@ -40,3 +40,17 @@ i
 9src/main/java/com/nhnacademy/springjpa/entity/Review.java,f/0/f09539d10b78dda4568eaf590be48622fdf36812
 v
 Fsrc/main/java/com/nhnacademy/springjpa/entity/ShoppingCartProduct.java,8/f/8f48853d3c660374f46450f7f5e361bc6b34a260
+y
+Isrc/main/java/com/nhnacademy/springjpa/repository/CategoryRepository.java,0/9/09620b8454bee28ade031c97f320e4d92c2296fb
+u
+Esrc/main/java/com/nhnacademy/springjpa/repository/UserRepository.java,1/d/1dce7039eb57cd8c89e52ff4a42d42fc3b0e4cfd
+x
+Hsrc/main/java/com/nhnacademy/springjpa/repository/ProductRepository.java,7/3/73d916db865be27aa944e8933dabf949b49982b2
+w
+Gsrc/main/java/com/nhnacademy/springjpa/repository/ReviewRepository.java,a/4/a4527be00ae0bf504ef23e9a5edfef3c28f9c7b1
+}
+Msrc/main/java/com/nhnacademy/springjpa/repository/ShoppingCartRepository.java,e/3/e37ab7ca793e92688091e9422e4110b5f703f501
+|
+Lsrc/main/java/com/nhnacademy/springjpa/repository/OrderDetailRepository.java,b/2/b28eaa2829215c7d43aaa45bb128a7c0eb755e2b
+„
+Tsrc/main/java/com/nhnacademy/springjpa/repository/ShoppingCartProductRepository.java,3/1/31ca287c2e3ae07b293facc10c9d885064957441
