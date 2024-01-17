@@ -67,12 +67,11 @@ CREATE TABLE IF NOT EXISTS `Orders` (
 
 CREATE TABLE IF NOT EXISTS `OrderDetails` (
                               `order_id`    int NOT NULL,
-                              `line_number` int NOT NULL,
                               `product_id`	int NOT NULL,
                               `quantity`	int DEFAULT 0,
                               `unitcost`	decimal(15),
 
-                              PRIMARY KEY(`order_id`, `line_number`),
+                              PRIMARY KEY(`order_id`, `product_id`),
                               FOREIGN KEY(`order_id`) REFERENCES Orders(`order_id`),
                               FOREIGN KEY(`product_id`) REFERENCES Products(`product_id`)
 );
@@ -89,11 +88,10 @@ CREATE TABLE IF NOT EXISTS `ShoppingCart` (
 
 CREATE TABLE IF NOT EXISTS `ShoppingCartProduct` (
                             `cart_id`	    int	NOT NULL,
-                            `line_number`	int NOT NULL,
                             `product_id`    int NOT NULL,
                             `quantity`	    int DEFAULT 0,
 
-                            PRIMARY KEY(`cart_id`, `line_number`),
+                            PRIMARY KEY(`cart_id`, `product_id`),
                             FOREIGN KEY(`cart_id`) REFERENCES ShoppingCart(`cart_id`)
                             FOREIGN KEY(`product_id`) REFERENCES Products(`product_id`)
 );

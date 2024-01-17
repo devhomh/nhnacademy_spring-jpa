@@ -5,7 +5,6 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
@@ -36,6 +35,7 @@ public class OrderDetail {
     @JoinColumn(name = "order_id")
     private Order order;
 
+    @MapsId("productId")
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
@@ -50,8 +50,6 @@ public class OrderDetail {
     public static class Pk implements Serializable {
         private Integer orderId;
 
-        @Id
-        @Column(name = "line_number")
-        private Integer lineNumber;
+        private Integer productId;
     }
 }
