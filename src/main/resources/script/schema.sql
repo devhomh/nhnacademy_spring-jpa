@@ -11,21 +11,21 @@
  */
 
 CREATE TABLE IF NOT EXISTS `Categories` (
-                            `category_id`		INT	auto_increment NOT NULL,
+                            `category_id`	INT	auto_increment NOT NULL,
                             `category_name`	varchar(50) NOT NULL,
 
                             PRIMARY KEY(`category_id`)
 );
 
 CREATE TABLE IF NOT EXISTS `Products` (
-                          `product_id`	INT	auto_increment NOT NULL,
-                          `category_id`	INT NOT NULL,
-                          `model_number`	nvarchar(10) NOT NULL,
-                          `model_name`	nvarchar(120) NOT NULL,
-                          `quantity` INT DEFAULT 0,
+                          `product_id`	    INT	auto_increment NOT NULL,
+                          `category_id`	    INT NOT NULL,
+                          `model_number`    nvarchar(10) NOT NULL,
+                          `model_name`	    nvarchar(120) NOT NULL,
+                          `quantity`        INT DEFAULT 0,
                           `prouduct_image`	nvarchar(30) NOT NULL,
-                          `unitcost`	decimal(15) NOT NULL,
-                          `description`	text,
+                          `unitcost`	    decimal(15) NOT NULL,
+                          `description`	    text,
 
                           PRIMARY KEY(`product_id`),
                           FOREIGN KEY(`category_id`) REFERENCES Categories(`category_id`)
@@ -61,28 +61,39 @@ CREATE TABLE IF NOT EXISTS `Orders` (
                         `order_date`	Datetime,
                         `ship_date`	Datetime,
 
-                        CONSTRAINT pk_Orders PRIMARY KEY(OrderID),
-                        CONSTRAINT fk_Orders_Users FOREIGN KEY(UserID) REFERENCES Users(UserID)
+                        PRIMARY KEY(`order_id`),
+                        FOREIGN KEY(`user_id`) REFERENCES Users(`user_id`)
 );
 
 CREATE TABLE IF NOT EXISTS `OrderDetails` (
                               `order_id`    int NOT NULL,
+                              `line_number` int NOT NULL,
                               `product_id`	int NOT NULL,
                               `quantity`	int DEFAULT 0,
                               `unitcost`	decimal(15),
 
-                              PRIMARY KEY(`order_id`, `product_id`),
+                              PRIMARY KEY(`order_id`, `line_number`),
                               FOREIGN KEY(`order_id`) REFERENCES Orders(`order_id`),
-                              FOREIGN KEY(ProductID) REFERENCES Products(`product_id`)
+                              FOREIGN KEY(`product_id`) REFERENCES Products(`product_id`)
 );
 
 CREATE TABLE IF NOT EXISTS `ShoppingCart` (
-                              `record_id`	int	auto_increment NOT NULL,
-                              `cart_id`		nvarchar(150) NOT NULL,
-                              `quantity`	int,
-                              `product_id`	int,
+                              `cart_id`	    int	auto_increment NOT NULL,
+                              `user_id`     varchar(50) NOT NULL,
                               `created_at`	Datetime DEFAULT NOW(),
 
-                              PRIMARY KEY(record_id),
+                              PRIMARY KEY(`cart_id`),
+                              FOREIGN KEY(`user_id`) REFERENCES Users(`user_id`),
                               FOREIGN KEY(`product_id`) REFERENCES Products(`product_id`)
+);
+
+CREATE TABLE IF NOT EXISTS `ShoppingCartProduct` (
+                            `cart_id`	    int	NOT NULL,
+                            `line_number`	int NOT NULL,
+                            `product_id`    int NOT NULL,
+                            `quantity`	    int DEFAULT 0,
+
+                            PRIMARY KEY(`cart_id`, `line_number`),
+                            FOREIGN KEY(`cart_id`) REFERENCES ShoppingCart(`cart_id`)
+                            FOREIGN KEY(`product_id`) REFERENCES Products(`product_id`)
 );

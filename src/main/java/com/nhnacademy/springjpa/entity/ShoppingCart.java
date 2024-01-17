@@ -1,9 +1,13 @@
 package com.nhnacademy.springjpa.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,18 +20,16 @@ import lombok.Setter;
 @Table(name = "ShoppingCart")
 public class ShoppingCart {
     @Id
-    @Column(name = "record_id")
-    private Integer recordId;
-
     @Column(name = "cart_id")
-    private String cartId;
+    private Integer cartId;
 
-    @Column(name = "quantity")
-    private Integer quantity;
-
-    @Column(name = "product_id")
-    private Integer productId;
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @Column(name = "created_at")
     private LocalDateTime dateCreated;
+
+    @OneToMany(mappedBy = "shoppingcart")
+    private List<ShoppingCartProduct> shoppingCartProducts;
 }

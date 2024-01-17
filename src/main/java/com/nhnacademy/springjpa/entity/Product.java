@@ -1,8 +1,13 @@
 package com.nhnacademy.springjpa.entity;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,8 +23,9 @@ public class Product {
     @Column(name = "product_id")
     private Integer productId;
 
-    @Column(name = "category_id")
-    private Integer categoryId;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     @Column(name = "model_number")
     private String modelNumber;
@@ -38,4 +44,10 @@ public class Product {
 
     @Column(name = "description")
     private String description;
+
+    @OneToMany(mappedBy = "product")
+    private List<OrderDetail> orderDetails;
+
+    @OneToMany(mappedBy = "product")
+    private List<ShoppingCartProduct> shoppingCartProducts;
 }

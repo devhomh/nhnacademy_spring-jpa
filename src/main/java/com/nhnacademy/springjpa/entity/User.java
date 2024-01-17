@@ -1,9 +1,12 @@
 package com.nhnacademy.springjpa.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -39,5 +42,14 @@ public class User {
 
     @Column(name = "latest_at")
     private LocalDateTime latestLoginAt;
+
+    @OneToMany(mappedBy = "user")
+    private List<Order> orders;
+
+    @OneToMany(mappedBy = "user")
+    private List<Review> reviews;
+
+    @OneToOne(mappedBy = "user")
+    private ShoppingCart shoppingCart;
 
 }

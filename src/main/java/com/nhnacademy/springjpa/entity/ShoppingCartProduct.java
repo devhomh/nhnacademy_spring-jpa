@@ -16,30 +16,26 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@NoArgsConstructor
 @Setter
 @Getter
+@NoArgsConstructor
 @Entity
-@Table(name = "OrderDetails")
-public class OrderDetail {
+@Table(name = "ShoppingCartProduct")
+public class ShoppingCartProduct {
     @EmbeddedId
     private Pk pk;
 
-    @Column(name = "quantity")
-    private Integer quantity;
-
-    @Column(name = "unitcost")
-    private Integer unitCost;
-
-    @MapsId("orderId")
+    @MapsId("cartId")
     @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
+    @JoinColumn(name = "cart_id")
+    private ShoppingCart shoppingCart;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
 
+    @Column(name = "quantity")
+    private Integer quantity;
 
     @NoArgsConstructor
     @AllArgsConstructor
@@ -48,7 +44,7 @@ public class OrderDetail {
     @Setter
     @Embeddable
     public static class Pk implements Serializable {
-        private Integer orderId;
+        private Integer cartId;
 
         @Id
         @Column(name = "line_number")
