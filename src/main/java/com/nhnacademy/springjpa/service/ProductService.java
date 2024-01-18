@@ -11,7 +11,7 @@ public interface ProductService {
     Product getProduct(int productId);
     Product registerProduct(ProductRequest registerRequest);
     void removeProduct(int productId);
-    List<ProductDto> getProductByCategoryName(String categoryName);
+    Page<ProductDto> getProductByCategoryName(String categoryName, Pageable pageable);
 
     List<Product> getProductHavingPriceAtLeast(int unitCost);
 

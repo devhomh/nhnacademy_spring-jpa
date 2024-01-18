@@ -9,6 +9,7 @@ import com.nhnacademy.springjpa.repository.ProductRepository;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -45,8 +46,13 @@ public class ProductServiceImpl implements ProductService{
 
     @Transactional
     @Override
-    public List<ProductDto> getProductByCategoryName(String categoryName) {
-        return categoryRepository.getProductByCategoryName(categoryName);
+    public Page<ProductDto> getProductByCategoryName(String categoryName, Pageable pageable) {
+        List<ProductDto> productList = productRepository.getProductByCategory_CategoryName(categoryName);
+        int start = (int) pageable.getOffset();
+        int end = Math.min((start + pageable.getPageSize()), productList.size());
+        List<ProductDto> subList = productList.subList(start, end);
+
+        return new PageImpl<>(subList, pageable, productList.size());
     }
 
     @Transactional

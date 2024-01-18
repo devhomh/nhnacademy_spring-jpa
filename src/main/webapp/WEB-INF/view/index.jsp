@@ -38,6 +38,14 @@
     <main>
         <div class="album py-5 bg-light">
             <div class="container">
+                <form action="/sort" method="get">
+                    <select name="category" onchange="this.form.submit()">
+                        <option value="" ${empty selected ? "selected" : ""}>전체</option>
+                        <c:forEach var="category" items="${categories}">
+                            <option value="${category}" ${category == selected ? "selected" : ""}>${category}</option>
+                        </c:forEach>
+                    </select>
+                </form>
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <c:forEach var="product" items="${products}">
                         <div class="col">

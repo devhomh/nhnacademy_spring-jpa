@@ -5,7 +5,7 @@ import com.nhnacademy.springjpa.entity.Category;
 import java.util.List;
 
 public interface CategoryService {
-    List<CategoryNameOnly> findAll();
+    List<String> findAll();
 
     Category findByCategoryName(String categoryName);
 }

@@ -4,6 +4,7 @@ import com.nhnacademy.springjpa.domain.CategoryNameOnly;
 import com.nhnacademy.springjpa.entity.Category;
 import com.nhnacademy.springjpa.repository.CategoryRepository;
 import java.util.List;
+import java.util.stream.Collectors;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +18,11 @@ public class CategoryServiceImpl implements CategoryService{
 
     @Transactional
     @Override
-    public List<CategoryNameOnly> findAll() {
-        return categoryRepository.getAllBy();
+    public List<String> findAll() {
+        return categoryRepository.getAllBy()
+                .stream()
+                .map(CategoryNameOnly::getCategoryName)
+                .collect(Collectors.toList());
     }
 
     @Transactional
