@@ -1,25 +1,32 @@
 package com.nhnacademy.springjpa.entity;
 
+import com.nhnacademy.springjpa.domain.ProductRequest;
+import com.nhnacademy.springjpa.repository.CategoryRepository;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @NoArgsConstructor
-@Setter
+@AllArgsConstructor
+@Builder(builderMethodName = "ProductBuilder")
 @Getter
 @Entity
 @Table(name = "Products")
 public class Product {
     @Id
     @Column(name = "product_id")
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer productId;
 
     @ManyToOne
@@ -46,4 +53,15 @@ public class Product {
 
     @OneToMany(mappedBy = "product")
     private List<ShoppingCartProduct> shoppingCartProducts;
+
+    public static ProductBuilder builder(CategoryRepository categoryRepository, ProductRequest productRequest){
+        Category category = categoryRepository.findByCategoryName(productRequest.getCategoryName());
+        return ProductBuilder()
+                .category(category)
+                .modelNumber(productRequest.getModelNumber())
+                .modelName(productRequest.getModelName())
+                .quantity(productRequest.getQuantity())
+                .unitCost(productRequest.getUnitCost())
+                .description(productRequest.getDescription());
+    }
 }

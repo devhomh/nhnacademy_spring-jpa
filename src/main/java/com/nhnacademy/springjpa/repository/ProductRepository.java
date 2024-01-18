@@ -1,6 +1,7 @@
 package com.nhnacademy.springjpa.repository;
 
 import com.nhnacademy.springjpa.domain.ProductDto;
+import com.nhnacademy.springjpa.domain.ProductRequest;
 import com.nhnacademy.springjpa.entity.Product;
 import java.util.List;
 import org.springframework.data.domain.Page;
@@ -16,11 +17,4 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     Page<ProductDto> findByModelNameLike(String modelName);
 
     Page<ProductDto> getAllBy(Pageable pageable);
-
-    @Modifying
-    @Query("update Product p set p.quantity = :quantity where p.productId = :productId")
-    int updateQuantity(@Param("productId") int productId, @Param("quantity") int quantity);
-    @Modifying
-    @Query("update Product p set p.unitCost = :unitCost where p.productId = :productId")
-    int updateUnitCost(@Param("productId") int productId, @Param("unitCost") int unitCost);
 }
