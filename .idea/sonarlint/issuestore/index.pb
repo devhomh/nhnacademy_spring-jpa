@@ -60,3 +60,13 @@ Osrc/main/java/com/nhnacademy/springjpa/repository/CategoryRepositoryCustom.java
 Msrc/main/java/com/nhnacademy/springjpa/repository/CategoryRepositoryImpl.java,8/c/8c5bfb345b5b2f4426500d7f98da58715ca8b15f
 j
 :src/main/java/com/nhnacademy/springjpa/domain/UserDto.java,4/2/42f58461a8636ac4a433fd873daeeb7d9f693245
+É
+Ssrc/main/java/com/nhnacademy/springjpa/repository/ShoppingCartRepositoryCustom.java,4/2/423f373c42f1372cab549efb3eecd29559010da9
+Å
+Qsrc/main/java/com/nhnacademy/springjpa/repository/ShoppingCartRepositoryImpl.java,a/2/a2ff793392aedc25011a6c700093656e1b446446
+ä
+Zsrc/main/java/com/nhnacademy/springjpa/repository/ShoppingCartProductRepositoryCustom.java,4/4/44f7154321319330a4d237aea1667bc15f1082e2
+ä
+Zsrc/main/java/com/nhnacademy/springjpa/repository/ShoppingCartRepositoryProductCustom.java,0/e/0e9654090e9b780e3a293a4f582e1966a554be1d
+à
+Xsrc/main/java/com/nhnacademy/springjpa/repository/ShoppingCartProductRepositoryImpl.java,3/8/38ed4d56eb604cb6af0bfdff32094ef11f078048

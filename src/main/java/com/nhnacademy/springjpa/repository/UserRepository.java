@@ -13,6 +13,4 @@ public interface UserRepository extends JpaRepository<User, String> {
     @Modifying
     @Query("update User u set u.latestLoginAt = :latestAt where u.userId = :userId")
     int updateLatestLogin(@Param("userId") String userId, @Param("latestAt")LocalDateTime latestAt);
-
-
 }
