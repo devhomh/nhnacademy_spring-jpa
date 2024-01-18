@@ -7,7 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,11 +35,8 @@ public class Product {
     @Column(name = "quantity")
     private Integer quantity;
 
-    @Column(name = "prouduct_image")
-    private String productImage;
-
     @Column(name = "unitcost")
-    private Integer unitCost;
+    private Long unitCost;
 
     @Column(name = "description")
     private String description;

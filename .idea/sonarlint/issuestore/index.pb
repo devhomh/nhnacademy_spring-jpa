@@ -1,16 +1,12 @@
 
 7
 pom.xml,4/4/442292b8a7efeabbe4cc176709b833b1792140ec
-`
-0src/main/java/com/nhnacademy/springjpa/Main.java,9/5/957e75ee5f4a4ccc4987c734843069eb8a9926f8
 l
 <src/main/java/com/nhnacademy/springjpa/config/JpaConfig.java,a/4/a4da7072d9b22f910283e3e784ee282dd5b9a4b9
 m
 =src/main/java/com/nhnacademy/springjpa/config/RootConfig.java,7/4/7409da75baf87efe894db987d42cb57f21e6d269
 l
 <src/main/java/com/nhnacademy/springjpa/config/WebConfig.java,e/5/e5d03a17c9639c998aab4bb7d5d1e765a8d09aa1
-9
-	Base.java,6/6/665679ca4cff6d2c2db008a4732498d6d3e1c9d4
 `
 0src/main/java/com/nhnacademy/springjpa/Base.java,f/f/ffae7f20dae3f94fe6d750b9bb7f6a489540b367
 m
@@ -29,8 +25,6 @@ k
 ;src/main/java/com/nhnacademy/springjpa/entity/Category.java,3/5/3577abce6c1d0a7f056cd09b19581e345f4a7f92
 j
 :src/main/java/com/nhnacademy/springjpa/entity/Product.java,8/f/8f061c8e7075ca40be74afc786ce39de7246528d
-j
-:src/main/java/com/nhnacademy/springjpa/entity/Reviews.java,0/f/0f3f6120862ad3ad11481548bf31312b1a57e512
 o
 ?src/main/java/com/nhnacademy/springjpa/entity/ShoppingCart.java,0/7/073938b899b56de1a6af7e32cd094cff1dadc1aa
 :
@@ -54,3 +48,15 @@ Msrc/main/java/com/nhnacademy/springjpa/repository/ShoppingCartRepository.java,
 Lsrc/main/java/com/nhnacademy/springjpa/repository/OrderDetailRepository.java,b/2/b28eaa2829215c7d43aaa45bb128a7c0eb755e2b
 „
 Tsrc/main/java/com/nhnacademy/springjpa/repository/ShoppingCartProductRepository.java,3/1/31ca287c2e3ae07b293facc10c9d885064957441
+l
+<src/main/java/com/nhnacademy/springjpa/domain/ReviewDto.java,8/5/85705257b04b91d67427ddd28febd140678a8197
+m
+=src/main/java/com/nhnacademy/springjpa/domain/ProductDto.java,8/9/898d8d1d1fe53c066b2617d5d0125514f4f7cb5f
+n
+>src/main/java/com/nhnacademy/springjpa/domain/CategoryDto.java,2/f/2ff6102b80fb87a6e7aeab26e44aa79384172871
+
+Osrc/main/java/com/nhnacademy/springjpa/repository/CategoryRepositoryCustom.java,3/4/34e2134e63b3fe3b1e20b8721050b21d3856a9ea
+}
+Msrc/main/java/com/nhnacademy/springjpa/repository/CategoryRepositoryImpl.java,8/c/8c5bfb345b5b2f4426500d7f98da58715ca8b15f
+j
+:src/main/java/com/nhnacademy/springjpa/domain/UserDto.java,4/2/42f58461a8636ac4a433fd873daeeb7d9f693245
