@@ -53,14 +53,14 @@
                                 <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
                                     <title>Placeholder</title>
                                     <rect width="100%" height="100%" fill="#55595c"></rect>
-                                    <image xlink:href="${img_link}" width="100%" height="225"></image>
+                                    <image width="100%" height="225"></image>
                                 </svg>
 
                                 <div class="card-body">
                                     <p class="card-text">${product.modelName}</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick=location.href="/product/ + ${product.productId}">View</button>
+                                            <button type="button" class="btn btn-sm btn-outline-secondary" onclick=location.href="/product/${product.productId}">View</button>
                                         </div>
                                         <small class="text-bold">₩${product.unitCost}</small>
                                     </div>
