@@ -14,7 +14,7 @@ import org.springframework.data.repository.query.Param;
 public interface ProductRepository extends JpaRepository<Product, Integer> {
     @Query("select p from Product p  where p.unitCost > ?1")
     List<Product> getProductHavingPriceAtLeast(int unitCost);
-    Page<ProductDto> findByModelNameLike(String modelName);
+    Page<ProductDto> findByModelNameLike(String modelName, Pageable pageable);
 
     Page<ProductDto> getAllBy(Pageable pageable);
 }

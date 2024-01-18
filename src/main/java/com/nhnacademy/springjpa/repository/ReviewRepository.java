@@ -10,8 +10,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface ReviewRepository extends JpaRepository<Review, Integer> {
     List<Review> getReviewByRatingGreaterThanEqual(int rating);
 
-    Page<ReviewDto> getReviewByUser_UserName(Pageable pageable);
+    Page<ReviewDto> getReviewByUser_UserName(String userName, Pageable pageable);
 
-    Page<ReviewDto> getReviewByProduct_ModelName(Pageable pageable);
+    Page<ReviewDto> getReviewByProduct_ModelName(String modelName, Pageable pageable);
 
 }

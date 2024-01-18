@@ -86,3 +86,11 @@ q
 Asrc/main/java/com/nhnacademy/springjpa/domain/ProductRequest.java,9/5/95af37a2c7caf142222e143b07f080c64e5866dc
 y
 Isrc/main/java/com/nhnacademy/springjpa/domain/ProductRegisterRequest.java,5/5/55fd6ee2df485e72882556f2e0ad059439e16826
+u
+Esrc/main/java/com/nhnacademy/springjpa/controller/HomeController.java,9/f/9ff4e1cb1a3be918bf654ffbb0fec255daae99de
+V
+&src/main/webapp/WEB-INF/view/index.jsp,8/1/817c880c4d926d2f6cccffcf363ea7a5508a4e7e
+x
+Hsrc/main/java/com/nhnacademy/springjpa/controller/ProductController.java,1/5/15edcfde2bb1cbbb30b919c124f8d59a7b6fbfb6
+X
+(src/main/webapp/WEB-INF/view/product.jsp,8/1/81940108949a08d14096e1e656bbd853cc7c01c5

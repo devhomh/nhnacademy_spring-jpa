@@ -1,6 +1,5 @@
 package com.nhnacademy.springjpa.entity;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,21 +26,6 @@ public class User {
 
     @Column(name = "user_password")
     private String userPassword;
-
-    @Column(name = "user_birth")
-    private String userBirth;
-
-    @Column(name = "user_auth")
-    private String userAuth;
-
-    @Column(name = "user_point")
-    private Integer userPoint;
-
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
-
-    @Column(name = "latest_at")
-    private LocalDateTime latestLoginAt;
 
     @OneToMany(mappedBy = "user")
     private List<Order> orders;

@@ -15,9 +15,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Setter
-@Getter
 @NoArgsConstructor
+@Getter @Setter
 @Entity
 @Table(name = "ShoppingCartProduct")
 public class ShoppingCartProduct {
@@ -40,8 +39,7 @@ public class ShoppingCartProduct {
     @NoArgsConstructor
     @AllArgsConstructor
     @EqualsAndHashCode
-    @Getter
-    @Setter
+    @Getter @Setter
     @Embeddable
     public static class Pk implements Serializable {
         private Integer cartId;

@@ -18,24 +18,24 @@ import org.springframework.transaction.PlatformTransactionManager;
 @Configuration
 public class JpaConfig {
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean(DataSource dataSource){
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
         LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
         emf.setDataSource(dataSource);
         emf.setPackagesToScan("com.nhnacademy.springjpa.entity");
-        emf.setJpaVendorAdapter(jpaVendorAdapter());
+        emf.setJpaVendorAdapter(jpaVendorAdapters());
         emf.setJpaProperties(jpaProperties());
 
         return emf;
     }
 
-    private JpaVendorAdapter jpaVendorAdapter(){
+    private JpaVendorAdapter jpaVendorAdapters() {
         HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
         hibernateJpaVendorAdapter.setDatabase(Database.H2);
 
         return hibernateJpaVendorAdapter;
     }
 
-    private Properties jpaProperties(){
+    private Properties jpaProperties() {
         Properties jpaProperties = new Properties();
         jpaProperties.setProperty("hibernate.show_sql", "false");
         jpaProperties.setProperty("hibernate.format_sql", "true");

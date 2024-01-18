@@ -8,9 +8,12 @@ import com.nhnacademy.springjpa.repository.CategoryRepository;
 import com.nhnacademy.springjpa.repository.ProductRepository;
 import java.util.List;
 import javax.transaction.Transactional;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
+@Service("productService")
 public class ProductServiceImpl implements ProductService{
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
@@ -55,16 +58,14 @@ public class ProductServiceImpl implements ProductService{
 
     @Transactional
     @Override
-    public List<ProductDto> findByModelNameLike(String modelName) {
-        return productRepository.findByModelNameLike(modelName)
+    public List<ProductDto> findByModelNameLike(String modelName, Pageable pageable) {
+        return productRepository.findByModelNameLike(modelName, pageable)
                 .getContent();
     }
 
     @Transactional
     @Override
-    public List<ProductDto> getAllBy(Pageable pageable) {
-        Pageable fixedElementPage = PageRequest.ofSize(8);
-
-        return productRepository.getAllBy(fixedElementPage).getContent();
+    public Page<ProductDto> getAllBy(Pageable pageable) {
+        return productRepository.getAllBy(pageable);
     }
 }

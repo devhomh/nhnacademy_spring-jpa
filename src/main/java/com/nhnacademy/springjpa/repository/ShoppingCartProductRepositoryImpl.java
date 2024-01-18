@@ -11,7 +11,6 @@ public class ShoppingCartProductRepositoryImpl extends QuerydslRepositorySupport
         super(ShoppingCart.class);
     }
 
-    // update ShoppingCartProduct set quantity = {} inner join
     @Override
     public long updateQuantity(int cartId, int productId, int quantity) {
         QShoppingCartProduct shoppingCartProduct = QShoppingCartProduct.shoppingCartProduct;

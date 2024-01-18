@@ -20,7 +20,6 @@ import lombok.Setter;
 public class Category {
     @Id
     @Column(name = "category_id")
-    @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer categoryId;
 
     @Column(name = "category_name")

@@ -4,6 +4,7 @@ import com.nhnacademy.springjpa.domain.ProductDto;
 import com.nhnacademy.springjpa.domain.ProductRequest;
 import com.nhnacademy.springjpa.entity.Product;
 import java.util.List;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface ProductService {
@@ -14,7 +15,7 @@ public interface ProductService {
 
     List<Product> getProductHavingPriceAtLeast(int unitCost);
 
-    List<ProductDto> findByModelNameLike(String modelName);
+    List<ProductDto> findByModelNameLike(String modelName, Pageable pageable);
 
-    List<ProductDto> getAllBy(Pageable pageable);
+    Page<ProductDto> getAllBy(Pageable pageable);
 }

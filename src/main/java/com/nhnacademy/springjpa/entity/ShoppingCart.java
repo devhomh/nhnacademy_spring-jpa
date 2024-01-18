@@ -33,6 +33,6 @@ public class ShoppingCart {
     @Column(name = "created_at")
     private LocalDateTime dateCreated;
 
-    @OneToMany(mappedBy = "shoppingcart")
+    @OneToMany(mappedBy = "shoppingCart")
     private List<ShoppingCartProduct> shoppingCartProducts;
 }
