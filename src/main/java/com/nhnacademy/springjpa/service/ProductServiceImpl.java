@@ -9,7 +9,6 @@ import com.nhnacademy.springjpa.repository.ProductRepository;
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -58,9 +57,8 @@ public class ProductServiceImpl implements ProductService{
 
     @Transactional
     @Override
-    public List<ProductDto> findByModelNameLike(String modelName, Pageable pageable) {
-        return productRepository.findByModelNameLike(modelName, pageable)
-                .getContent();
+    public Page<ProductDto> findByModelNameContains(String modelName, Pageable pageable) {
+        return productRepository.findByModelNameContains(modelName, pageable);
     }
 
     @Transactional

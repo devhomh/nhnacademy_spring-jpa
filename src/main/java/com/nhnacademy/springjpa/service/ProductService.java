@@ -15,7 +15,7 @@ public interface ProductService {
 
     List<Product> getProductHavingPriceAtLeast(int unitCost);
 
-    List<ProductDto> findByModelNameLike(String modelName, Pageable pageable);
+    Page<ProductDto> findByModelNameContains(String modelName, Pageable pageable);
 
     Page<ProductDto> getAllBy(Pageable pageable);
 }

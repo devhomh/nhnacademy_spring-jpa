@@ -27,8 +27,9 @@
                     <li><a href="${shoppingcart_link}" class="nav-link px-2 text-white">장바구니</a></li>
                 </ul>
 
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                    <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" style="display: flex;align-items: center" method="get" action="/search">
+                    <input type="search" id="keyword" name="keyword" class="form-control form-control-dark" placeholder="Search..." aria-label="Search" style="margin-right: 10px">
+                    <button class="btn btn-sm btn-outline-secondary" style="width: 50px">검색</button>
                 </form>
             </div>
         </div>
@@ -67,7 +68,7 @@
                     </c:if>
                     <c:forEach begin="1" end="${totalPage}" var="pageNumber">
                         <c:url var="pageURL" value="/">
-                            <c:param name="page" value="${pageNumber}" />
+                            <c:param name="page" value="${pageNumber - 1}" />
                         </c:url>
                         <a href="${pageURL}" style="margin-right: 5px">${pageNumber}</a>
                     </c:forEach>
